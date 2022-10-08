@@ -1,7 +1,25 @@
 ﻿Screen screen = new Screen(ConsoleColor.Black, ConsoleColor.DarkGreen);
+List<string> options = new List<string>();
+string option = "";
 
-screen.buildGeneralScreen();
-screen.buildHorizontalRow(2, 0, 70);
-screen.center(1, 0, 70, "Console Bank");
-screen.buildFrame(5, 5, 40, 12);
-screen.buildFrame(20, 20, 70, 36);
+// Opções do menu para visualização.
+options.Add("1 - Contas      ");
+options.Add("2 - Movimentação");
+options.Add("3 - Extrato     ");
+options.Add("0 - Sair        ");
+
+while (true)
+{
+  screen.buildGeneralScreen();
+  screen.buildHorizontalRow(2, 0, 70);
+  screen.center(1, 0, 70, "Console Bank");
+  option = screen.showMenu(2, 3, options);
+
+  if (option == "0") {
+    break;
+  }
+
+  if (option == "1") {
+
+  }
+}

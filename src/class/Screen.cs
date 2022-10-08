@@ -91,4 +91,33 @@ class Screen
     
     this.write(column, row, message);
   }
+
+  public string showMenu(int initialColumn, int initialRow, List<string> options)
+  {
+    string? operation;
+    int column, row, finalColumn, finalRow;
+
+    finalRow = (initialRow + 2) + options.Count;
+    finalColumn = (initialColumn + 1) + options[0].Length;
+
+    this.buildFrame(initialColumn, initialRow, finalColumn, finalRow);
+
+    column = initialColumn + 1;
+    row = initialRow + 1;
+
+    foreach (string option in options)
+    {
+      this.write(column, row, option);
+      row++;
+    }
+
+    this.write(column, row, "Opção:");
+    operation = Console.ReadLine();
+
+    if (operation == null) {
+      operation = "0";
+    }
+
+    return operation;
+  }
 }
