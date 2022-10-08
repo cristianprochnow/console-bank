@@ -1,4 +1,6 @@
 ﻿Screen screen = new Screen(ConsoleColor.Black, ConsoleColor.DarkGreen);
+AccountsCRUD accountsCRUD = new AccountsCRUD(screen);
+
 List<string> options = new List<string>();
 string option = "";
 
@@ -20,6 +22,7 @@ while (true)
   }
 
   if (option == "1") {
-
+    accountsCRUD.buildScreen(10, 3, 70, 15);
+    Console.ReadKey();
   }
 }
