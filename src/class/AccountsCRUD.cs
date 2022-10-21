@@ -4,7 +4,7 @@ class AccountsCRUD
   Screen screen;
 
   string? number;
-  string holder;
+  string? holder;
   int position;
 
   public AccountsCRUD(Screen screen)
