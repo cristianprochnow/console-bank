@@ -25,7 +25,7 @@ class Screen
     this.center(1, 0, 79, "Console Bank");
   }
 
-  private void write(int column, int row, string message)
+  public void write(int column, int row, string message)
   {
     Console.SetCursorPosition(column, row);
     Console.Write(message);
@@ -111,7 +111,7 @@ class Screen
       row++;
     }
 
-    this.write(column, row, "Opção:");
+    this.write(column, row, "Opção: ");
     operation = Console.ReadLine();
 
     if (operation == null) {

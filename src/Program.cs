@@ -22,7 +22,8 @@ while (true)
   }
 
   if (option == "1") {
-    accountsCRUD.buildScreen(10, 3, 70, 15);
-    Console.ReadKey();
+    accountsCRUD.controlCRUD();
   }
 }
+
+Console.Clear();
