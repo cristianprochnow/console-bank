@@ -20,9 +20,11 @@ while (true)
   if (option == "0") {
     break;
   }
-
   if (option == "1") {
     accountsCRUD.controlCRUD();
+  }
+  if (option == "3") {
+    accountsCRUD.showExtract();
   }
 }
 

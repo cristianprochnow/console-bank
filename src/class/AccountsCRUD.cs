@@ -56,15 +56,67 @@ class AccountsCRUD
       }
       else {
         this.screen.write(22, 9, "Conta não encontrada!");
-        Console.ReadKey();
+        this.screen.write(22, 12, "Deseja cadastrar? (S/N): ");
+        
+        string? response = Console.ReadLine();
+
+        if (response == "s" || response == "S") {
+          this.screen.clearArea(21, 9, 69, 9);
+
+          Console.SetCursorPosition(21, 9);
+          this.holder = Console.ReadLine();
+
+          Console.SetCursorPosition(21, 10);
+          decimal initialDeposit = Convert.ToDecimal(Console.ReadLine());
+
+          this.screen.write(21, 12, "Confirma o cadastro? (S/N): ");
+          response = Console.ReadLine();
+
+          if (response == "s" || response == "S") {
+            if (this.number == null) {
+              this.number = (new System.Random()).Next().ToString();
+            }
+            if (this.holder == null) {
+              this.holder = (new System.Random()).Next().ToString();
+            }
+            this.accountsStorage.Add(new Account(this.number, this.holder, initialDeposit));
+          }
+        }
       }
     }
   }
 
-  void showAccountData(int userId)
+  public void showAccountData(int userId)
   {
     this.screen.write(22, 9, this.accountsStorage[userId].bearer);
     this.screen.write(22, 10, this.accountsStorage[userId].balance.ToString());
     Console.ReadKey();
+  }
+
+  public void showExtract()
+  {
+    this.screen.clearArea(1, 4, 70, 24);
+
+    this.screen.write(1, 4, "Número da conta : ");
+    this.number = Console.ReadLine();
+    if (this.number != "") {
+      bool found = false;
+      int counter;
+
+      for (counter = 0; counter < this.accountsStorage.Count; counter++)
+      {
+        if (this.accountsStorage[counter].number == this.number) {
+          found = true;
+          this.position = counter;
+          break;
+        }
+      }
+
+      if (found) {
+        string extract = this.accountsStorage[this.position].showExtract();
+        this.screen.write(1, 4, extract);
+        Console.ReadKey();
+      }
+    }
   }
 }
