@@ -23,6 +23,9 @@ while (true)
   if (option == "1") {
     accountsCRUD.controlCRUD();
   }
+  if (option == "2") {
+    accountsCRUD.moviment();
+  }
   if (option == "3") {
     accountsCRUD.showExtract();
   }
